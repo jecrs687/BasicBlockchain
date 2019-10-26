@@ -37,7 +37,9 @@ int CriacaoData(){
 	}while((op != 2)&&(op !=1));
 	
 	if(op == 1){
+		printf("de: ");
 		scanf("%d", &de);
+		printf("\npara: ");
 		scanf("%d", &para);
 		data = formaData(op, de, para);
 		return data;
