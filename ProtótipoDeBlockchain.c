@@ -56,7 +56,7 @@ void AdicionarBlock(int i){
 		block[i].data = CriacaoData();		
 		printf("digite a quantia: \n");
 		scanf("%f", &block[i].quantia);
-		printf("===============================================%d==========\n", i);
+		printf("===============================================bloco %d feito==========\n", i);
 		i++;		
 	}while((block[i].data < 0)||(block[i].quantia < 0));
 }
@@ -96,7 +96,7 @@ int main(){
 				printf("time = %s", block[pesq].time);
 				//printf("verificado = %d\n", Index);
 				printf("quantia = R$ %.2f\n\n", block[pesq].quantia);
-				
+				i--;
 		default: break;
 	}
 }
