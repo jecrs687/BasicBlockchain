@@ -11,9 +11,11 @@ operção:
 data: 	1 	1234    4321
 
 */
+
 struct bloco{
 	int time, data;
 	float quantia;
+	int verificado;
 };
 
 struct bloco block[5000];
@@ -29,7 +31,7 @@ int formaData(op, de, para){
 int CriacaoData(){
 	int op, de, para, data;
 	do{
-	printf("op: [1]Saque [2]Transferencia\n");
+	printf("op: [1]Saque [2]Pagamento\n");
 	scanf("%d", &op);
 		if((op != 2)&&(op != 1)){
 			printf("tente novamente\n");
@@ -39,12 +41,14 @@ int CriacaoData(){
 	if(op == 1){
 		printf("de: ");
 		scanf("%d", &de);
-		printf("\npara: ");
+		printf("para: ");
 		scanf("%d", &para);
 		data = formaData(op, de, para);
 		return data;
 	}else if(op == 2){
+		printf("de: ");
 		scanf("%d", &de);
+		printf("para: ");
 		scanf("%d", &para);
 		data = formaData(op, de, para);
 		return data;
@@ -57,6 +61,7 @@ void AdicionarBlock(int i){
 		printf("digite a quantia: \n");
 		scanf("%f", &block[i].quantia);
 		printf("===============================================bloco %d feito==========\n", i);
+		
 		i++;		
 	}while((block[i].data < 0)||(block[i].quantia < 0));
 }
@@ -81,7 +86,6 @@ int main(){
 	a = asctime(timeinfo);
 	block[i].time = a;	 
 //--------------------------------------------
-
 	op = menu(op);
 	switch(op){
 		case 1: AdicionarBlock(i);
@@ -91,12 +95,13 @@ int main(){
 				printf("\ndigite o block de pesquisa: \n");
 				scanf("%d", &pesq);
 				
-				printf("\n\nBLOCK[%d]\nindex = %d\n", pesq, pesq);
+				printf("\nBLOCK[%d]\nindex = %d\n", pesq, pesq);
 				printf("data = %d\n", block[pesq].data);
 				printf("time = %s", block[pesq].time);
 				//printf("verificado = %d\n", Index);
 				printf("quantia = R$ %.2f\n\n", block[pesq].quantia);
 				i--;
+				
 		default: break;
 	}
 }
